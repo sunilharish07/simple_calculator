@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #d75151;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            display: inline-block;
+            background: rgb(212, 118, 118);
+            padding: 15px;
+            border: 1px solid #210606;
+        }
+
+        input {
+            width: 160px;
+            height: 30px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        button {
+            width: 35px;
+            height: 35px;
+            margin: 2px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <input type="text" id="screen" readonly><br>
+
+        <button onclick="add('7')">7</button>
+        <button onclick="add('8')">8</button>
+        <button onclick="add('9')">9</button>
+        <button onclick="add('/')">/</button><br>
+
+        <button onclick="add('4')">4</button>
+        <button onclick="add('5')">5</button>
+        <button onclick="add('6')">6</button>
+        <button onclick="add('*')">*</button><br>
+
+        <button onclick="add('1')">1</button>
+        <button onclick="add('2')">2</button>
+        <button onclick="add('3')">3</button>
+        <button onclick="add('-')">-</button><br>
+
+        <button onclick="add('0')">0</button>
+        <button onclick="add('.')">.</button>
+        <button onclick="calc()">=</button>
+        <button onclick="add('+')">+</button><br>
+
+        <button onclick="clearScreen()" style="width: 150px;">Clear</button>
+    </div>
+
+    <script>
+        function add(value) {
+            document.getElementById("screen").value += value;
+        }
+
+        function calc() {
+            var result = document.getElementById("screen").value;
+            try {
+                document.getElementById("screen").value = eval(result);
+            } catch (e) {
+                alert("Invalid input");
+            }
+        }
+
+        function clearScreen() {
+            document.getElementById("screen").value = "";
+        }
+    </script>
+
+</body>
+</html>
